@@ -19,8 +19,8 @@ create table t_post (
 */
 create table t_comment (
     cmt_id integer not null primary key auto_increment,
-    cmt_content text not null,
     pst_id integer not null,
+    cmt_content text not null,
     cmt_author varchar(100) not null,
     cmt_date datetime not null,
     /*usr_id integer not null,*/

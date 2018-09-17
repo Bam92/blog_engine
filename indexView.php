@@ -21,14 +21,14 @@
       <p>
         <?php echo nl2br(htmlspecialchars ($row['pst_content'])); ?><br>
         <em>
-          <a href="#">Commentaires</a>
+          <a href="post.php?id=<?php echo $row['pst_id']; ?>">Commentaires</a>
         </em>
       </p>
 
     </div>
     <?php
     }
-  $row->closeCursor();
+  //$row->closeCursor();
     ?>
 <!--
     //  echo 'article num' .$row['pst_id']. 'titre' .$row['pst_title'] .$row['pst_content']. '\n';
