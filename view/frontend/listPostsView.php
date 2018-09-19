@@ -17,7 +17,7 @@
     <p>
       <?php echo nl2br(htmlspecialchars ($row['pst_content'])); ?><br>
       <em>
-        <a href="post.php?id=<?php echo $row['pst_id']; ?>">Commentaires</a>
+        <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>">Commentaires</a>
       </em>
     </p>
 
