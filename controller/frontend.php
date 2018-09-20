@@ -20,7 +20,7 @@ function addComment($pstId, $author, $comment) {
   $affectedRows = postComment($pstId, $author, $comment);
 
   if ($affectedRows === false) {
-    die('Impossible d\'ajouter le Commentaires!');
+    throw new \Exception("Impossible d'ajouter le Commentaires!");
   } else {
     header('Location: index.php?action=post&id=' .$pstId);
   }
