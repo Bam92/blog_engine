@@ -1,4 +1,6 @@
 <?php
+namespace Bam\Blog\Model;
+
 require_once("model/Manager.php");
 /**
  * Manage all posts
