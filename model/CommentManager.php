@@ -1,16 +1,10 @@
 <?php
+require_once("model/Manager.php");
 /**
  * Manage all posts
  */
-class CommentManager
+class CommentManager extends Manager
 {
-
-  private function dbConnect()
-  {
-
-      $db_conct = new PDO('mysql:host=localhost; dbname=p3_blog', 'bam', 'bam92');
-      return $db_conct;
-  }
 
   public function getComments($postId)
   {

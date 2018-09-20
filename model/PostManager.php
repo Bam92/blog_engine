@@ -1,17 +1,10 @@
 <?php
+require_once("model/Manager.php");
 /**
  * Manage all posts
  */
-class PostManager
+class PostManager extends Manager
 {
-
-  private function dbConnect()
-  {
-
-      $db_conct = new PDO('mysql:host=localhost; dbname=p3_blog', 'bam', 'bam92');
-      return $db_conct;
-  }
-
   /* Get all posts from db */
   public function getPosts()
   {
