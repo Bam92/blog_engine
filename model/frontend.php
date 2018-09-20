@@ -65,3 +65,13 @@ function getComments($postId)
   return $comments;
 
 }
+
+/* add new comment*/
+function postComment($pstId, $author, $comment) {
+  $db_conct = dbConnect();
+
+  $comments = $db_conct->prepare('INSERT INTO t_comment(pst_id, cmt_author, cmt_content, cmt_date) VALUES(?, ?, ?, NOW())');
+  $affectedRows = $comments->execute(array($pstId, $author, $comment));
+
+  return $affectedRows;
+}
