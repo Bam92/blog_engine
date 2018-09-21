@@ -6,7 +6,7 @@
     <div class="post">
       <h3>
         <? echo htmlspecialchars ($post['pst_title']); ?>
-        <em>le <?php echo $post['pst_date']; ?></em>
+        <br> <?php echo $post['pst_date_fr']; ?>
       </h3>
       <p>
         <?php echo nl2br(htmlspecialchars ($post['pst_content'])); ?><br>
@@ -18,8 +18,8 @@
 <?php
     while ($comment = $comments->fetch())
     {
-      echo "<p> <strong>" .htmlentities($comment['cmt_author']). "</strong> le ".
-      $comment['cmt_date']. "</p>";
+      echo "<p> Commentaire de <strong>" .htmlentities($comment['cmt_author']). "</strong><br> ".
+      $comment['cmt_date_fr']. "</p>";
       echo "<p>" .nl2br(htmlspecialchars($comment['cmt_content'])) ."</p>";
   }
 ?>

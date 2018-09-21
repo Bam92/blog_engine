@@ -4,7 +4,6 @@
     <h1>Mon super blog</h1>
     <p>Articles recemment publies: </p>
 
-
 <?php
   while ($row = $posts->fetch())
   {
@@ -12,7 +11,7 @@
   <div class="post">
     <h3>
       <?php echo htmlspecialchars ($row['pst_title']); ?>
-      <em>le <?php echo $row['pst_date']; ?></em>
+      <br> <?php echo $row['pst_date_fr']; ?>
     </h3>
     <p>
       <?php echo nl2br(htmlspecialchars ($row['pst_content'])); ?><br>

@@ -10,9 +10,9 @@ class CommentManager extends Manager
 
   public function getComments($postId)
   {
-    /*$db_conct = dbConnect();
+    $db_conct = $this->dbConnect();
 
-    // query for comments for a given post
+    /*// query for comments for a given post
     $sql = 'SELECT * FROM t_comment WHERE pst_id = ? ORDER BY cmt_date';
     $stmt = $db_conct->prepare($sql);
 
@@ -20,17 +20,11 @@ class CommentManager extends Manager
     $comments = $stmt->execute(array($postId));*/
     //$comments = $stmt->fetch();
 
-    $db = $this->dbConnect();
-
-      $comments = $db->prepare('SELECT * FROM t_comment WHERE pst_id = ? ORDER BY cmt_date DESC');
+      $comments = $db_conct->prepare('SELECT cmt_id, cmt_content, cmt_author, DATE_FORMAT(cmt_date, \'%d/%m/%Y\') AS cmt_date_fr FROM t_comment WHERE pst_id = ? ORDER BY cmt_date DESC');
 
       $comments->execute(array($postId));
 
-
-    //  return $comments;
-
     return $comments;
-
   }
 
   /* add new comment*/
