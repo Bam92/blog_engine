@@ -12,7 +12,7 @@ class PostManager extends Manager
   {
     $db_conct = $this->dbConnect();
 
-    $stmt = $db_conct->query('SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d/%m/%Y\') AS pst_date_fr FROM t_post ORDER BY pst_date DESC LIMIT 0, 5');
+    $stmt = $db_conct->query('SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post ORDER BY pst_date DESC LIMIT 0, 5');
     return $stmt;
 
   }
@@ -23,7 +23,7 @@ class PostManager extends Manager
     $db_conct = $this->dbConnect();
 
     // query for one post
-    $sql = 'SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d/%m/%Y\') AS pst_date_fr FROM t_post WHERE pst_id = ?';
+    $sql = 'SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post WHERE pst_id = ?';
     $stmt = $db_conct->prepare($sql);
 
     // perform query

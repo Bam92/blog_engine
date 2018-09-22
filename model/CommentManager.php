@@ -20,7 +20,7 @@ class CommentManager extends Manager
     $comments = $stmt->execute(array($postId));*/
     //$comments = $stmt->fetch();
 
-      $comments = $db_conct->prepare('SELECT cmt_id, cmt_content, cmt_author, DATE_FORMAT(cmt_date, \'%d/%m/%Y\') AS cmt_date_fr FROM t_comment WHERE pst_id = ? ORDER BY cmt_date DESC');
+      $comments = $db_conct->prepare('SELECT cmt_id, cmt_content, cmt_author, DATE_FORMAT(cmt_date, \'%d %M %Y\') AS cmt_date_fr FROM t_comment WHERE pst_id = ? ORDER BY cmt_date DESC');
 
       $comments->execute(array($postId));
 
