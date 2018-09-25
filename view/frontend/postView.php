@@ -21,7 +21,15 @@
         <footer class="entry-footer">
           <span class="posted-on"><?php echo $post['pst_date_fr']; ?></span>
           <span class="by">Abel</span>
-          <span class=""> category or tag?</span>
+          <span class="">
+            <?php
+            //  print($comments);
+          /*  while ($tag = $tags->fetch()) {
+              echo $tag['tag_name'];
+
+          }*/
+            ?>
+          </span>
         </footer>
         <!--,entry-footer -->
 
@@ -29,28 +37,33 @@
 
     </div>
 
-    <h2>Commentaires</h2>
+    <h2>Commentaires(#)</h2>
 <?php
     while ($comment = $comments->fetch())
     {
-      echo "<p> Commentaire de <strong>" .htmlentities($comment['cmt_author']). "</strong><br> ".
-      $comment['cmt_date_fr']. "</p>";
-      echo "<p>" .nl2br(htmlspecialchars($comment['cmt_content'])) ."</p>";
+?>
+      <p> Commentaire de <strong> <?php echo htmlentities($comment['cmt_author']); ?></strong><br>
+        <?php echo $comment['cmt_date_fr']; ?>
+      </p>
+      <p>
+        <?php echo nl2br(htmlspecialchars($comment['cmt_content'])); ?>
+      </p>
+<?php
   }
 ?>
 
 <!--form to add comment-->
 <form class="" action="index.php?action=addComment&amp;id=<?php echo $post['pst_id']; ?>" method="post">
-  <div class="">
-    <label for="author">Auteur</label><br>
-    <input type="text" name="author" id="author">
-  </div>
   <div>
     <label for="comment">Commentaires</label><br>
     <textarea name="comment" id="comment"></textarea>
   </div>
   <div class="">
-    <input type="submit">
+    <label for="author">Nom</label><br>
+    <input type="text" name="author" id="author">
+  </div>
+  <div class="">
+    <input type="submit" value="Commentez">
   </div>
 </form>
 
