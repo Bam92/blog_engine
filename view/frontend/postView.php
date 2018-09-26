@@ -23,11 +23,9 @@
           <span class="by">Abel</span>
           <span class="">
             <?php
-            //  print($comments);
-          /*  while ($tag = $tags->fetch()) {
-              echo $tag['tag_name'];
-
-          }*/
+              while ($tag = $tags->fetch()) {
+                  echo $tag['tag_name']. ', ';
+              }
             ?>
           </span>
         </footer>
@@ -37,7 +35,7 @@
 
     </div>
 
-    <h2>Commentaires(#)</h2>
+    <h2>Commentaires(<?php //echo $cmt_number['nb']; ?>)</h2>
 <?php
     while ($comment = $comments->fetch())
     {
@@ -66,6 +64,10 @@
     <input type="submit" value="Commentez">
   </div>
 </form>
+
+<?php
+//var_dump($post);
+ ?>
 
 <?php $content= ob_get_clean(); ?>
 
