@@ -35,7 +35,7 @@
 
     </div>
 
-    <h2>Commentaires(<?php //echo $cmt_number['nb']; ?>)</h2>
+    <h2>Commentaires(<?php echo $cmt_number['nb']; ?>)</h2>
 <?php
     while ($comment = $comments->fetch())
     {
