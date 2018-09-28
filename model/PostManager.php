@@ -17,6 +17,18 @@ class PostManager extends Manager
 
   }
 
+  // Truncate
+/*  function truncate($text, $chars = 25) {
+    if (strlen($text) <= $chars) {
+        return $text;
+    }
+    $text = $text." ";
+    $text = substr($text,0,$chars);
+    $text = substr($text,0,strrpos($text,' '));
+    $text = $text."[..]";
+    return $text;
+}*/
+
   /* Get one post GET  */
   public function getPost($postId)
   {
@@ -32,5 +44,38 @@ class PostManager extends Manager
 
     return $post;
 
+  }
+
+  /*public function getTags($postId)
+  {
+    $db_conct = $this->dbConnect();
+
+    // query for one post
+    $sql = 'SELECT tag_name
+            FROM t_tag tg
+            INNER JOIN t_pst_tag pTg
+            ON pTg.tag_id = tg.tag_id
+            INNER JOIN t_post p
+            ON p.pst_id=tg.tag_id
+            WHERE pTg.pst_id = ?';
+  //  $sql = 'select tag_name FROM t_tag tg INNER JOIN t_pst_tag pTg ON pTg.tag_id=tg.tag_id INNER JOIN t_post p ON p.pst_id=tg.tag_id where pTg.pst_id = ?';
+    $stmt = $db_conct->prepare($sql);
+
+    // perform query
+    $stmt->execute(array($postId));
+    $tagId = $stmt->fetch();
+
+    return $tags;
+
+  }*/
+
+  /* add new post*/
+  public function postPost($pstTitle, $pstContent) {
+    $db_conct = $this->dbConnect();
+
+    $post = $db_conct->prepare("INSERT INTO t_post(pst_id, pst_title, pst_content, pst_date) VALUES('', ?, ?, NOW())");
+    $affectedRows = $post->execute(array($pstTitle, $pstContent));
+
+    return $affectedRows;
   }
 }

@@ -10,7 +10,6 @@ try{
     } elseif ($_GET['action'] == 'post') {
       if (isset($_GET['id']) && $_GET['id'] > 0) {
         post();
-        //numberComments();
       } else {
         throw new Exception("aucun identifiant de billet envoye");
       }
@@ -31,6 +30,15 @@ try{
         callAdmin();
       } else {
         throw new Exception("aucun champ n'a ete rempli");
+      }
+    } elseif ($_GET['action'] == 'pst_add_form') {
+      require('view/backend/pstAddView.php');
+    } elseif ($_GET['action'] == 'addPost') {
+      if (!empty($_POST['title']) && !empty($_POST['content'])) {
+        addPost($_POST['title'], $_POST['content']);
+
+      } else {
+        throw new Exception("Impossible d'enregistrer l'article");
       }
     }
   } else {
