@@ -22,10 +22,16 @@ try{
           throw new Exception("tous les champs ne sont pas remplis!");
         }
       } else {
-        throw new Exception(" aucun identifiant n'a ete envoye");
+        throw new Exception("aucun identifiant n'a ete envoye");
       }
     } elseif ($_GET['action'] == 'login') {
       login();
+    } elseif (isset($_POST["username"]) && isset($_POST["password"]) && $_GET['action'] == 'admin') {
+      if (!empty($_POST["username"]) && !empty($_POST["password"])) {
+        callAdmin();
+      } else {
+        throw new Exception("aucun champ n'a ete rempli");
+      }
     }
   } else {
     listPosts();
