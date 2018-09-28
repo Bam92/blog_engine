@@ -1,6 +1,7 @@
 <?php
 
 require('controller/frontend.php');
+require('controller/backend.php');
 
 try{
   if (isset($_GET['action'])) {
@@ -9,6 +10,7 @@ try{
     } elseif ($_GET['action'] == 'post') {
       if (isset($_GET['id']) && $_GET['id'] > 0) {
         post();
+        //numberComments();
       } else {
         throw new Exception("aucun identifiant de billet envoye");
       }
@@ -22,6 +24,8 @@ try{
       } else {
         throw new Exception(" aucun identifiant n'a ete envoye");
       }
+    } elseif ($_GET['action'] == 'login') {
+      login();
     }
   } else {
     listPosts();

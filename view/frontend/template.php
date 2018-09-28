@@ -8,5 +8,9 @@
   <body>
     <?= $content ?>
 
+    <footer>
+      <a href="index.php?action=login">Connexion</a>
+    </footer>
+
   </body>
 </html>
