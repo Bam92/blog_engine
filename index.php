@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require('controller/frontend.php');
 require('controller/backend.php');
 
@@ -23,14 +23,19 @@ try{
       } else {
         throw new Exception("aucun identifiant n'a ete envoye");
       }
-    } elseif ($_GET['action'] == 'login') {
-      login();
-    } elseif (isset($_POST["username"]) && isset($_POST["password"]) && $_GET['action'] == 'admin') {
-      if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-        callAdmin();
-      } else {
-        throw new Exception("aucun champ n'a ete rempli");
+    } elseif ($_GET['action'] == 'login') { // call connection form
+      loginForm();
+    } elseif ($_GET['action'] == 'loginChk') { // chck form entries
+      if (isset($_POST["username"]) && isset($_POST["password"])) {
+        if (!empty($_POST["username"]) && !empty($_POST["password"])) {
+          loginChk();
+        } else {
+          throw new Exception("il y a des champs non remplis");
+        }
       }
+
+    } elseif ($_GET['action'] == 'admin') {
+        callAdmin();
     } elseif ($_GET['action'] == 'pst_add_form') {
       require('view/backend/pstAddView.php');
     } elseif ($_GET['action'] == 'addPost') {

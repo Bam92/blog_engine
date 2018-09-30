@@ -8,28 +8,37 @@ require_once("model/Manager.php");
 class UserManager extends Manager
 {
 
-  public function getUser($usrName)
+  public function login($usrnm, $psswd)
   {
     $db_conct = $this->dbConnect();
 
     // query for user
-    $sql = 'SELECT * FROM t_user WHERE usr_name = ?';
+    $sql = 'SELECT usr_password, usr_id FROM t_user WHERE usr_name = ?';
 
     $stmt = $db_conct->prepare($sql);
 
       // perform query
-    $stmt->execute(array($usrName));
-    $usr = $stmt->fetch();
+    $stmt->execute(array($usrnm));
+    $user = $stmt->fetch();
 
-    if ($usr)
-      return $usr;
+    //$isValid = password_verify($psswd, $user[0]);
 
-     else
-      throw new \Exception("Erreur: Le nom d'Utilisateur envoye n'est pas correct");
+  /*  if ($psswd == $user['usr_password']) {
+      $_SESSION['loggedin'] = true;
+		  $_SESSION['usrId'] = $user['usr_id'];
+		  $_SESSION['username'] = $user['usr_name'];
 
-  
-    /*if ($usr) {
-      return $usr;
+      return true;
     }*/
+
+   if ($user['usr_password'] == $psswd) {
+
+     $_SESSION['loggedin'] = true;
+     $_SESSION['usrId'] = $user['usr_id'];
+     $_SESSION['username'] = $user['usr_name'];
+
+      return true;
+  }
+
 }
 }
