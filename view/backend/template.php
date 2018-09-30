@@ -10,7 +10,7 @@
     <?= $content ?>
 
     <footer>
-      <a class="text-center" href="index.php?action=login">Connexion</a>
+      <!--a class="text-center" href="index.php?action=login">Connexion</a-->
     </footer>
 
   </body>
