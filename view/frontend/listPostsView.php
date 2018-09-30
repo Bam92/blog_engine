@@ -3,6 +3,7 @@
 <?php ob_start(); ?>
     <!--h1>Mon super blog</h1-->
 
+
 <?php
   while ($row = $posts->fetch())
   {
@@ -17,7 +18,8 @@
       <!--,entry-header -->
 
       <div class="entry-content">
-        <?php echo nl2br(htmlspecialchars ($row['pst_content'])); ?>
+        <?php echo nl2br(htmlspecialchars(substr($row['pst_content'], 0, 300))); ?><br>
+        <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>" class="btn button-primary read-more">Lire la suite</a>
       </div>
       <!--,entry-content -->
 
@@ -26,7 +28,12 @@
       <footer class="entry-footer">
         <span class="posted-on"><?php echo $row['pst_date_fr']; ?></span>
         <span class="by">Abel</span>
-        <span class=""> category or tag?</span>
+        <span class=""> <?php
+          //while ($tag = $tags->fetch()) {
+            print($tags['tag_name']);
+        //  }
+        ?>
+        </span>
       </footer>
       <!--,entry-footer -->
 
