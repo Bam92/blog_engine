@@ -46,6 +46,8 @@ try{
       } else {
         throw new Exception("Impossible d'enregistrer l'article");
       }
+    } elseif ($_GET['action'] == 'logout') {
+      destroySession();
     }
   } else {
     listPosts();

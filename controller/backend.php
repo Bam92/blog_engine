@@ -25,8 +25,6 @@ if(!is_logged_in()){
   $posts = $postManager->getPosts();
 
 require('view/backend/adminView.php');
-
-
 }
 
 function is_logged_in(){
@@ -64,4 +62,13 @@ function addPost($pstTitle, $pstContent) {
   } else {
     header('Location: index.php?action=admin');
   }
+}
+
+function destroySession() {
+
+  // log user out
+  $usrManager = new UserManager();
+  $user =$usrManager->logout();
+  header('Location: index.php');
+
 }

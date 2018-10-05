@@ -2,8 +2,6 @@
 
 <?php ob_start(); ?>
     <!--h1>Mon super blog</h1-->
-
-
 <?php
   while ($row = $posts->fetch())
   {

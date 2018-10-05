@@ -40,7 +40,12 @@
     while ($comment = $comments->fetch())
     {
 ?>
-      <p> Commentaire de <strong> <?php echo htmlentities($comment['cmt_author']); ?></strong><br>
+      <p> Commentaire de <?php if ($comment['cmt_web'] != NULL) { ?>
+        <a href="<?php echo htmlentities($comment['cmt_web']); ?>"><strong> <?php echo htmlentities($comment['cmt_author']); ?></strong></a>
+      <?php
+    } else {  ?>
+      <strong> <?php echo htmlentities($comment['cmt_author']); ?></strong>
+    <?php } ?><br>
         <?php echo $comment['cmt_date_fr']; ?>
       </p>
       <p>
@@ -50,24 +55,29 @@
   }
 ?>
 
+<h3>Vos commentaires</h3>
 <!--form to add comment-->
-<form class="" action="index.php?action=addComment&amp;id=<?php echo $post['pst_id']; ?>" method="post">
-  <div>
+<form class="form-horizontal" action="index.php?action=addComment&amp;id=<?php echo $post['pst_id']; ?>" role="form" method="post">
+  <div class="form-group">
     <label for="comment">Commentaires</label><br>
     <textarea name="comment" id="comment"></textarea>
   </div>
-  <div class="">
-    <label for="author">Nom</label><br>
-    <input type="text" name="author" id="author">
+  <div class="form-group">
+    <label for="author">Nom*</label><br>
+    <input type="text" name="author" id="author" required>
   </div>
-  <div class="">
+  <div class="form-group">
+    <label for="email">Adresse de messagerie</label><br>
+    <input type="email" name="email" id="email">
+  </div>
+  <div class="form-group">
+    <label for="web">Site web</label><br>
+    <input type="url" name="web" id="web">
+  </div>
+  <div class="form-group">
     <input type="submit" value="Commentez">
   </div>
 </form>
-
-<?php
-//var_dump($post);
- ?>
 
 <?php $content= ob_get_clean(); ?>
 

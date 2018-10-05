@@ -23,14 +23,6 @@ class UserManager extends Manager
 
     //$isValid = password_verify($psswd, $user[0]);
 
-  /*  if ($psswd == $user['usr_password']) {
-      $_SESSION['loggedin'] = true;
-		  $_SESSION['usrId'] = $user['usr_id'];
-		  $_SESSION['username'] = $user['usr_name'];
-
-      return true;
-    }*/
-
    if ($user['usr_password'] == $psswd) {
 
      $_SESSION['loggedin'] = true;
@@ -40,4 +32,8 @@ class UserManager extends Manager
       return true;
   }
 }
+
+  public function logout() {
+    session_destroy();
+  }
 }

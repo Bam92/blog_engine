@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/style.css">
   </head>
+
   <body>
     <?= $content ?>
 
     <footer>
-      <!--a class="text-center" href="index.php?action=login">Connexion</a-->
+      <a class="text-center" href="index.php?action=logout">Déconnexion</a>
     </footer>
 
   </body>
+  
 </html>

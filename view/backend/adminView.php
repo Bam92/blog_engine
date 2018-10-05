@@ -1,6 +1,6 @@
-<?php $title = 'Billet simple pour l\'Alaska. Episode '.$post['pst_id']. ' - ' .$post['pst_title']
+<?php $title = 'Billet simple pour l\'Alaska. Episode '.$post['pst_id']. ' - ' .$post['pst_title'] ?>
 
-?>
+<?php ob_start(); ?>
 
 <h1>Welcome, <?php echo $_SESSION['username']; ?></h1>
 <h2>Articles recents</h2>
@@ -27,3 +27,7 @@ while ($row = $posts->fetch())
 }
 ?>
 <a href="index.php?action=pst_add_form"><button type="button" name="button">ajouter</button></a>
+
+<?php $content= ob_get_clean(); ?>
+
+<?php require('template.php'); ?>
