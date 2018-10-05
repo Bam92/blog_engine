@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use \Bam\Blog\Model\UserManager;
 use \Bam\Blog\Model\PostManager;
 use \Bam\Blog\Model\CommentManager;
@@ -16,7 +16,10 @@ function loginForm() {
 
 function callAdmin() {
 
-//  if(!is_logged_in()){ header('Location: index.php?action=login'); }
+if(!is_logged_in()){
+  //echo "Vous devez vous connecter pour acceder ici!!";
+  header('Location: index.php?action=login');
+}
 
   $postManager = new PostManager();
   $posts = $postManager->getPosts();
@@ -46,7 +49,7 @@ function loginChk() {
       header('Location: index.php?action=admin');
       exit;
   } else {
-    throw new \Exception("Wrong username or password");
+    throw new \Exception("Nom d'utilisateur ou mot de passe incorrect");
   }
 }
 //end if submit

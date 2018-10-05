@@ -13,7 +13,7 @@ class UserManager extends Manager
     $db_conct = $this->dbConnect();
 
     // query for user
-    $sql = 'SELECT usr_password, usr_id FROM t_user WHERE usr_name = ?';
+    $sql = 'SELECT * FROM t_user WHERE usr_name = ?';
 
     $stmt = $db_conct->prepare($sql);
 
@@ -39,6 +39,5 @@ class UserManager extends Manager
 
       return true;
   }
-
 }
 }

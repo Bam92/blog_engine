@@ -1,6 +1,8 @@
-<?php //$title = 'Billet simple pour l\'Alaska. Episode '.$post['pst_id']. ' - ' .$post['pst_title'] ?>
+<?php $title = 'Billet simple pour l\'Alaska. Episode '.$post['pst_id']. ' - ' .$post['pst_title']
 
-<h1>Welcome, Admin <?php //var_dump($_SESSION['username']); ?></h1>
+?>
+
+<h1>Welcome, <?php echo $_SESSION['username']; ?></h1>
 <h2>Articles recents</h2>
 
 <?php
