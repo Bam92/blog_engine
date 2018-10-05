@@ -40,11 +40,11 @@ class CommentManager extends Manager
   }
 
   /* add new comment*/
-  public function postComment($pstId, $author, $comment) {
+  public function postComment($pstId, $author, $comment, $email, $web) {
     $db_conct = $this->dbConnect();
 
-    $comments = $db_conct->prepare('INSERT INTO t_comment(pst_id, cmt_author, cmt_content, cmt_date) VALUES(?, ?, ?, NOW())');
-    $affectedRows = $comments->execute(array($pstId, $author, $comment));
+    $comments = $db_conct->prepare('INSERT INTO t_comment(pst_id, cmt_author, cmt_content, cmt_date, cmt_email, cmt_web) VALUES(?, ?, ?, NOW(), ?, ?)');
+    $affectedRows = $comments->execute(array($pstId, $author, $comment, $email, $web));
 
     return $affectedRows;
   }

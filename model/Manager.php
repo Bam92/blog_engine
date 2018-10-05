@@ -1,5 +1,6 @@
 <?php
 namespace Bam\Blog\Model;
+
 /**
  * database connection
  */

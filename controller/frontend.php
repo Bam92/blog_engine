@@ -29,10 +29,10 @@ function post() {
   require('view/frontend/postView.php');
 }
 
-function addComment($pstId, $author, $comment) {
+function addComment($pstId, $author, $comment, $email, $web) {
 
   $commentManager = new CommentManager();
-  $affectedRows = $commentManager->postComment($pstId, $author, $comment);
+  $affectedRows = $commentManager->postComment($pstId, $author, $comment, $email, $web);
 
   if ($affectedRows === false) {
     throw new \Exception("Impossible d'ajouter le Commentaires!");

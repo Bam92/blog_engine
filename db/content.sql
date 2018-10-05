@@ -19,17 +19,17 @@ insert into t_post values
   lorsque nous sommes tout à fait libres, et que rien ne nous empêche de faire ce qui peut nous donner le plus de plaisir, nous pouvons nous livrer entièrement à la volupté et chasser toute sorte de douleur ; mais, dans les temps destinés aux devoirs de la société ou à la nécessité des affaires, souvent il faut faire divorce avec la volupté, et ne se point refuser à la peine. La règle que suit en cela un homme sage, c’est de renoncer à de légères voluptés pour en avoir de plus grandes, et de savoir supporter des douleurs légères pour en éviter de plus fâcheuses.", '2018-08-09 05:08:55');
 
 insert into t_comment values
-('', 'Great! Keep up the good work.', 1, 'abel', '2018-08-08 15:18:55'),
-insert into t_comment values
-('', "Thank you, I'll try my best.", 1, 'carel', '2018-08-08 09:18:55');
-insert into t_comment values
-('', 'Great! Keep up the good work.', 2, 'Danny', '2018-08-08 15:18:55');
-insert into t_comment values
-('', "Thank you, I'll try my best.", 3, 'carel', '2018-08-08 09:18:55');
-insert into t_comment values
-('', 'Great! Keep up the good work.', 2, 'Jahane', '2018-08-09 05:18:55');
-insert into t_comment values
-('', "Thank you, I'll try my best.", 1, 'carel', '2018-08-18 09:18:55');
+('', 'Great! Keep up the good work.', 1, 'Abel', '2018-08-08 15:18:55', 'mp4@pm.com', NULL),
+
+('', "Thank you, I'll try my best.", 1, 'Josue', '2018-09-08 09:18:55', NULL, 'www.wbel.com'),
+
+('', 'Great! Keep up the good work.', 2, 'Danny', '2018-08-08 15:18:55', NULL, 'www.wbel.com'),
+
+('', "Thank you, I'll try my best.", 3, 'Carel', '2018-08-08 09:18:55', NULL, 'www.wbel.com'),
+
+('', 'Great! Keep up the good work.', 2, 'Jahane', '2018-08-09 05:18:55', 'mp4@pm.com', NULL),
+
+('', "Thank you, I'll try my best.", 1, 'ABigael', '2018-10-18 09:18:55', 'mp4@pm.com', NULL);
 
 insert into t_tag values
   ('', 'science'),
