@@ -1,12 +1,11 @@
 <?php $title= 'Billet simple pour l\'Alaska - le roman de Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
-    <!--h1>Mon super blog</h1-->
+
 <?php
   while ($row = $posts->fetch())
   {
   ?>
-  <div class="post">
     <article class="">
       <header class="entry-header">
         <h1>
@@ -21,8 +20,6 @@
       </div>
       <!--,entry-content -->
 
-      <br>
-
       <footer class="entry-footer">
         <span class="posted-on"><?php echo $row['pst_date_fr']; ?></span>
         <span class="by">Abel</span>
@@ -36,7 +33,7 @@
       <!--,entry-footer -->
 
     </article>
-  </div>
+
   <?php
   }
 //$row->closeCursor();

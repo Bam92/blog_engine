@@ -1,9 +1,6 @@
 <?php $title = 'Billet simple pour l\'Alaska. Episode '.$post['pst_id']. ' - ' .$post['pst_title'] ?>
 
 <?php ob_start();  ?>
-<!--h1>Mon super blog</h1-->
-<p><a href="index.php">Retour à la liste des billets</a></p>
-    <div class="post">
 
       <article class="">
         <header class="entry-header">
@@ -17,7 +14,7 @@
           <?php echo nl2br(htmlspecialchars ($post['pst_content'])); ?>
         </div>
         <!--,entry-content -->
-<br>
+
         <footer class="entry-footer">
           <span class="posted-on"><?php echo $post['pst_date_fr']; ?></span>
           <span class="by">Abel</span>
@@ -32,8 +29,6 @@
         <!--,entry-footer -->
 
       </article>
-
-    </div>
 
     <h2>Commentaires(<?php echo $cmt_number['nb']; ?>)</h2>
 <?php
