@@ -14,6 +14,24 @@ function loginForm() {
   require('view/backend/loginView.php');
 }
 
+function editForm() {
+
+  $postManager = new PostManager();
+  $edit = $postManager->getPost($_GET['id']);
+
+  require('view/backend/pstEditView.php');
+}
+
+function addPostForm() {
+
+  if(!is_logged_in()){
+    //echo "Vous devez vous connecter pour acceder ici!!";
+    header('Location: index.php?action=login');
+  }
+
+  require('view/backend/pstAddView.php');
+}
+
 function callAdmin() {
 
 if(!is_logged_in()){
@@ -54,11 +72,36 @@ function loginChk() {
 
 function addPost($pstTitle, $pstContent) {
 
+  // be sure the user is connected
+  if(!is_logged_in()){
+    //echo "Vous devez vous connecter pour acceder ici!!";
+    header('Location: index.php?action=login');
+  }
+
   $pstManager = new PostManager();
   $affectedRows = $pstManager->postPost($pstTitle, $pstContent);
 
   if ($affectedRows === false) {
     throw new \Exception("Impossible d'ajouter l'article!");
+  } else {
+    header('Location: index.php?action=admin');
+  }
+}
+
+// update post
+function updatePost($pstTitle, $pstContent, $pstId) {
+
+  // be sure the user is connected
+  if(!is_logged_in()){
+    //echo "Vous devez vous connecter pour acceder ici!!";
+    header('Location: index.php?action=login');
+  }
+
+  $pstManager = new PostManager();
+  $affectedRows = $pstManager->editPost($pstTitle, $pstContent, $pstId);
+
+  if ($affectedRows === false) {
+    throw new \Exception("Impossible de modifier l'article!");
   } else {
     header('Location: index.php?action=admin');
   }

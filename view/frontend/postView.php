@@ -54,8 +54,8 @@
 <!--form to add comment-->
 <form class="form-horizontal" action="index.php?action=addComment&amp;id=<?php echo $post['pst_id']; ?>" role="form" method="post">
   <div class="form-group">
-    <label for="comment">Commentaires</label><br>
-    <textarea name="comment" id="comment"></textarea>
+    <label for="comment">Commentaire</label><br>
+    <textarea name="comment" id="mytextarea"></textarea>
   </div>
   <div class="form-group">
     <label for="author">Nom*</label><br>

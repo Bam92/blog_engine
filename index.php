@@ -24,7 +24,7 @@ try{
       } else {
         throw new Exception("aucun identifiant n'a ete envoye");
       }
-    } elseif ($_GET['action'] == 'login') { // call connection form
+    } elseif ($_GET['action'] == 'login') { // call login form
       loginForm();
     } elseif ($_GET['action'] == 'loginChk') { // chck form entries
       if (isset($_POST["username"]) && isset($_POST["password"])) {
@@ -37,14 +37,25 @@ try{
 
     } elseif ($_GET['action'] == 'admin') {
         callAdmin();
-    } elseif ($_GET['action'] == 'pst_add_form') {
-      require('view/backend/pstAddView.php');
+    } elseif ($_GET['action'] == 'addPostForm') {
+      addPostForm();
     } elseif ($_GET['action'] == 'addPost') {
       if (!empty($_POST['title']) && !empty($_POST['content'])) {
         addPost($_POST['title'], $_POST['content']);
 
       } else {
         throw new Exception("Impossible d'enregistrer l'article");
+      }
+    } elseif ($_GET['action'] == 'edit') {
+      if (isset($_GET['id']) && $_GET['id'] > 0) {
+        editForm();
+        if (isset($_POST["title"]) && isset($_POST["content"])) {
+          if (!empty($_POST["title"]) && !empty($_POST["content"])) {
+            updatePost($_POST["title"], $_POST["content"], $_GET['id']);
+          } else {
+            throw new Exception("il y a des champs vides");
+          }
+        }
       }
     } elseif ($_GET['action'] == 'logout') {
       destroySession();

@@ -78,4 +78,19 @@ class PostManager extends Manager
 
     return $affectedRows;
   }
+
+  /* Update */
+  public function editPost($pstTitle, $pstContent, $id) {
+    $db_conct = $this->dbConnect();
+
+    $post = $db_conct->prepare("UPDATE t_post SET pst_title = :title, pst_content = :content, pst_date = NOW() WHERE pst_id = :id");
+    $affectedRows = $post->execute(array(
+      'title' => $pstTitle,
+      'content' => $pstContent,
+      'id' => $id,
+
+    ));
+
+    return $affectedRows;
+  }
 }
