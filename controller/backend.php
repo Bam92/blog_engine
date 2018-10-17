@@ -84,7 +84,7 @@ function addPost($pstTitle, $pstContent) {
   if ($affectedRows === false) {
     throw new \Exception("Impossible d'ajouter l'article!");
   } else {
-    header('Location: index.php?action=admin');
+    echo "L'article a ete ajoute avec succes";
   }
 }
 
@@ -103,7 +103,7 @@ function updatePost($pstTitle, $pstContent, $pstId) {
   if ($affectedRows === false) {
     throw new \Exception("Impossible de modifier l'article!");
   } else {
-    header('Location: index.php?action=admin');
+    echo "L'article a ete modifie avec succes";
   }
 }
 

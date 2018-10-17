@@ -1,5 +1,6 @@
-<?php $title= 'Se connecter';?>
-<?php ob_start();  ?>
+<?php $title= 'Se connecter'; ?>
+<?php ob_start(); ?>
+
 <div class="well">
   <h1>Connectez-vous</h1>
     <form class="form-signin form-horizontal" role="form" action="index.php?action=loginChk" method="post">
@@ -20,6 +21,7 @@
         </div>
     </form>
 </div>
+
 
 <?php $content= ob_get_clean(); ?>
 
