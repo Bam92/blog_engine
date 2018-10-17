@@ -1,3 +1,6 @@
+<?php $title= 'Modifier une episode'; ?>
+<?php ob_start(); ?>
+
 <form action="" method="post">
   <!--index.php?action=edit&amp;id=<?php echo $edit['pst_id'];?>-->
 <p><label for="title">Titre</label><input type="text" name="title" value="<?php echo $edit['pst_title'];?>"></p>
@@ -12,3 +15,6 @@
 <p> <!--To be removed after things go well -->
   <a href="index.php?action=admin">Dashbord</a>
 </p>
+
+<?php $content= ob_get_clean(); ?>
+<?php require('template.php'); ?>

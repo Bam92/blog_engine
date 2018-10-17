@@ -48,7 +48,7 @@
      </nav>
 
        <div class="container">
-       <div id="content"> <?= $content ?> </div>
+       <div id="contentAdmin"> <?= $content ?> </div>
 
        <footer class="footer">
          <a class="text-center" href="index.php?action=logout">Déconnexion</a>

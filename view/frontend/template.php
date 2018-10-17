@@ -60,7 +60,7 @@ selector: '#mytextarea'
     </main>
 
     <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"> </script>
-    <script type="text/javascript">
+    <!--script type="text/javascript">
 
     tinyMCE.init({
       mode: "textareas",
@@ -68,7 +68,7 @@ selector: '#mytextarea'
       theme: "simple"
     });
 
-    </script>
-    
+  </script-->
+
   </body>
 </html>
