@@ -1,15 +1,82 @@
-h1, h3
-{
-    text-align:center;
+.m-border-b {
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: capitalize;
 }
 
-h3
-{
+.entry-footer {
+  background-color: #f1f1f1;
+  color: rgba( 34, 49, 63, 0.7);
+}
+
+body {
+	background-color: #e9f2f9;
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
+}
+
+article {
+  background-color: #ffffff;
+  margin-bottom: 35px;
+  padding: 25px;
+}
+
+.entry-footer {
+  padding: 0px;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+#sidebar {
+    width: 350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.sidebar-header, .sidebar-content {
+  margin: 20% 0;
+  padding: 0 20%;
+}
+
+.site-description {
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0.5em 0 0;
+  opacity: 0.7;
+}
+
+#content {
+  width: calc(100% - 400px);
+  padding: 40px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /*background-color: #ffffff;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a {
+  color: #ffffff;
+}
+/*{
     background-color:black;
     color:white;
     font-size:0.9em;
     margin-bottom:0px;
-}
+}*/
 
 .post p
 {
@@ -27,4 +94,8 @@ a
 {
     text-decoration: none;
     color: blue;
+}
+
+a:hover {
+  text-decoration: none;
 }

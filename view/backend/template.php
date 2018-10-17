@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
+    <!-- Required meta tags always come first -->
     <meta charset="utf-8">
-    <title><?= $title ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS and Font awesome -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/Font-Awesome-fa-4/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="public/css/style.css">
+
+    <title><?= $title ?></title>
   </head>
+
   <body>
-    <div class="container">
-       <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+     <nav class="navbar navbar-inverse navbar-toggleable-sm fixed-top" role="navigation">
+       <div class="container">
+         <a class="navbar-brand" href="index.php?action=admin">Roman</a>
+         <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav">
+                <li class=""><a href=""><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Deconnexion</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Log in</a></li>
+                    </ul>
+                </li>
 
-               <div class="navbar-header">
-                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
-                       <span class="icon-bar"></span>
-                       <span class="icon-bar"></span>
-                       <span class="icon-bar"></span>
-                   </button>
-                   <a class="navbar-brand" href="index.php?action=admin">Roman</a>
-               </div>
-               <div class="collapse navbar-collapse" id="navbar-collapse-target">
-                   <ul class="nav navbar-nav navbar-right">
+            </ul>
+         </div>
 
-                           <li class=""><a href=""><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
+       </div>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+     </nav>
 
-                           <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                               <span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b></a>
-                               <ul class="dropdown-menu">
-                                   <li><a href="">Deconnexion</a></li>
-                               </ul>
-                           </li>
-
-                           <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                               <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b></a>
-                               <ul class="dropdown-menu">
-                                   <li><a href="#">Log in</a></li>
-                               </ul>
-                           </li>
-                   </ul>
-               </div>
-
-       </nav>
+       <div class="container">
        <div id="content"> <?= $content ?> </div>
 
        <footer class="footer">
