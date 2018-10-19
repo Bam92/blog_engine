@@ -56,17 +56,16 @@
 
     </div><!-- /.container -->
 
-    <!--script type="text/javascript" src="vendor/tinymce/js/tinymce/tinymce.min.js"> </script>
+    <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"> </script>
     <script type="text/javascript">
     tinyMCE.init({
       mode: "textareas",
-      language: "fr",
-      theme: "simple"
+      theme: "modern",
+      width: 600,
+      height: 100
     });
 
-    </script-->
-    <!--script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script-->
-
+    </script>
     <!-- jquery -->
     <script type="text/javascript" src="vendor/jquery-3.3.1.min.js"></script>
     <!-- bootstrap -->

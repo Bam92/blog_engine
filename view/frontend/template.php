@@ -6,23 +6,8 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/style.css">
 
-    <!--script type="text/javascript" src="vendor/tinymce/tinymce.min.js"> </script>
-    <script type="text/javascript">
-    tinyMCE.init({
-      mode: "textareas",
-      language: "fr",
-      theme: "advanced"
-    });
 
-  </script-->
-  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
-  <!--script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-<script>
-tinymce.init({
-selector: '#mytextarea'
-});
-</script-->
+
   </head>
   <body>
 
@@ -43,6 +28,13 @@ selector: '#mytextarea'
             </section>
             <section class="m-border-b">
               Episode
+
+              <!--?php
+                while ($row = $posts->fetch())
+                {
+                  echo htmlspecialchars ($row['pst_id']);
+                }
+                ?-->
             </section>
             <section class="m-border-b">
               <a class="nav-link active" href="#">A propos</a>
@@ -60,15 +52,15 @@ selector: '#mytextarea'
     </main>
 
     <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"> </script>
-    <!--script type="text/javascript">
-
+    <script type="text/javascript">
     tinyMCE.init({
       mode: "textareas",
-      language: "fr",
-      theme: "simple"
+      theme: "modern",
+      width: 600,
+      height: 100
     });
 
-  </script-->
+    </script>
 
   </body>
 </html>
