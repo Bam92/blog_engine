@@ -27,7 +27,11 @@ class CommentManager extends Manager
     return $comments;
   }
 
-  // Count comments for a given post
+    /**
+     * Get all comments for a given post
+     * @param $postId
+     * @return array
+     */
   public function countComments($postId)
   {
     $db_conct = $this->dbConnect();

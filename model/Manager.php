@@ -6,6 +6,9 @@ namespace Bam\Blog\Model;
  */
 class Manager
 {
+  /**
+  *@var \PDO
+  */
 
   protected function dbConnect()
   {

@@ -9,7 +9,9 @@
     <article class="">
       <header class="entry-header">
         <h1>
-          <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>"><?php echo htmlspecialchars ($row['pst_title']); ?></a>
+          <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>">
+            <?php echo htmlspecialchars ($row['pst_title']); ?>
+          </a>
         </h1>
       </header>
       <!--,entry-header -->
@@ -28,6 +30,7 @@
             print($tags['tag_name']);
         //  }
         ?>
+        <?php echo $cmt_number['nb']; ?>
         </span>
       </footer>
       <!--,entry-footer -->

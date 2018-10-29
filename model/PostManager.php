@@ -46,35 +46,12 @@ class PostManager extends Manager
 
   }
 
-  /*public function getTags($postId)
-  {
+  /* delete post*/
+  public function delPost($postId) {
     $db_conct = $this->dbConnect();
 
-    // query for one post
-    $sql = 'SELECT tag_name
-            FROM t_tag tg
-            INNER JOIN t_pst_tag pTg
-            ON pTg.tag_id = tg.tag_id
-            INNER JOIN t_post p
-            ON p.pst_id=tg.tag_id
-            WHERE pTg.pst_id = ?';
-  //  $sql = 'select tag_name FROM t_tag tg INNER JOIN t_pst_tag pTg ON pTg.tag_id=tg.tag_id INNER JOIN t_post p ON p.pst_id=tg.tag_id where pTg.pst_id = ?';
-    $stmt = $db_conct->prepare($sql);
-
-    // perform query
-    $stmt->execute(array($postId));
-    $tagId = $stmt->fetch();
-
-    return $tags;
-
-  }*/
-
-  /* add new post*/
-  public function postPost($pstTitle, $pstContent) {
-    $db_conct = $this->dbConnect();
-
-    $post = $db_conct->prepare("INSERT INTO t_post(pst_id, pst_title, pst_content, pst_date) VALUES('', ?, ?, NOW())");
-    $affectedRows = $post->execute(array($pstTitle, $pstContent));
+    $stmt = $db_conct->prepare("DELETE FROM t_post WHERE pst_id = :pstId");
+    $affectedRows = $stmt->execute(array("pstId" => $postId));
 
     return $affectedRows;
   }

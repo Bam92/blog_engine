@@ -40,7 +40,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <a href="{{ path('admin_article_delete', { 'id': article.id }) }}" class="btn btn-danger">Confirm</a>
+                            <a href="index.php?action=delete&amp;id=<?php echo $row['pst_id']; ?>" class="btn btn-danger">Confirm</a>
                         </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

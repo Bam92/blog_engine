@@ -34,10 +34,10 @@ function addPostForm() {
 
 function callAdmin() {
 
-if(!is_logged_in()){
-  //echo "Vous devez vous connecter pour acceder ici!!";
-  header('Location: index.php?action=login');
-}
+  if(!is_logged_in()){
+    //echo "Vous devez vous connecter pour acceder ici!!";
+    header('Location: index.php?action=login');
+  }
 
   $postManager = new PostManager();
   $posts = $postManager->getPosts();
@@ -105,6 +105,25 @@ function updatePost($pstTitle, $pstContent, $pstId) {
   } else {
     echo "L'article a ete modifie avec succes";
   }
+}
+
+function deletePost($postId) {
+  // be sure the user is connected
+  if(!is_logged_in()){
+    //echo "Vous devez vous connecter pour acceder ici!!";
+    header('Location: index.php?action=login');
+  }
+
+  $pstManager = new PostManager();
+  $affectedRows = $pstManager->delPost($postId);
+
+  if ($affectedRows === false) {
+    throw new \Exception("Impossible de supprimer l'article!");
+  } else {
+    echo "L'article a ete supprimé avec succes";
+    callAdmin();
+  }
+
 }
 
 function destroySession() {

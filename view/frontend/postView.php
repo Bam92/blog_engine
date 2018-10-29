@@ -30,7 +30,7 @@
 
       </article>
 
-    <h2>Commentaires(<?php echo $cmt_number['nb']; ?>)</h2>
+    <h2>Commentaires( <?php echo $cmt_number['nb']; ?> )</h2>
 <?php
     while ($comment = $comments->fetch())
     {
@@ -40,11 +40,11 @@
       <?php
     } else {  ?>
       <strong> <?php echo htmlentities($comment['cmt_author']); ?></strong>
-    <?php } ?><br>
+    <?php } ?><br><small>
         <?php echo $comment['cmt_date_fr']; ?>
-      </p>
+      </small></p>
       <p>
-        <?php echo nl2br(htmlspecialchars($comment['cmt_content'])); ?>
+        <?php echo $comment['cmt_content']; ?>
       </p>
 <?php
   }
