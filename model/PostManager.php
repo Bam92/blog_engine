@@ -45,7 +45,16 @@ class PostManager extends Manager
     return $post;
 
   }
+  /* add new post*/
+  public function postPost($pstTitle, $pstContent) {
+    $db_conct = $this->dbConnect();
 
+    $post = $db_conct->prepare("INSERT INTO t_post(pst_id, pst_title, pst_content, pst_date) VALUES('', ?, ?, NOW())");
+    $affectedRows = $post->execute(array($pstTitle, $pstContent));
+
+    return $affectedRows;
+  }
+  
   /* delete post*/
   public function delPost($postId) {
     $db_conct = $this->dbConnect();
