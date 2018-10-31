@@ -5,13 +5,13 @@
       <article class="">
         <header class="entry-header">
           <h1>
-            <a href="index.php?action=post&amp;id=<?php echo $post['pst_id']; ?>"><?php echo htmlspecialchars ($post['pst_title']); ?></a>
+            <a href="index.php?action=post&amp;id=<?php echo $post['pst_id']; ?>"><?php echo $post['pst_title']; ?></a>
           </h1>
         </header>
         <!--,entry-header -->
 
         <div class="entry-content">
-          <?php echo nl2br(htmlspecialchars ($post['pst_content'])); ?>
+          <?php echo nl2br ($post['pst_content']); ?>
         </div>
         <!--,entry-content -->
 
@@ -50,7 +50,7 @@
   }
 ?>
 
-<h3>Vos commentaires</h3>
+<h3>Laisser un commentaire</h3>
 <!--form to add comment-->
 <form class="form-horizontal" action="index.php?action=addComment&amp;id=<?php echo $post['pst_id']; ?>" role="form" method="post">
   <div class="form-group">

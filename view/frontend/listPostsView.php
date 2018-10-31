@@ -10,14 +10,14 @@
       <header class="entry-header">
         <h1>
           <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>">
-            <?php echo htmlspecialchars ($row['pst_title']); ?>
+            <?php echo ($row['pst_title']); ?>
           </a>
         </h1>
       </header>
       <!--,entry-header -->
 
       <div class="entry-content">
-        <?php echo nl2br(htmlspecialchars(substr($row['pst_content'], 0, 300))); ?><br>
+        <?php echo nl2br(substr($row['pst_content'], 0, 300)); ?><br>
         <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>" class="btn button-primary read-more">Lire la suite</a>
       </div>
       <!--,entry-content -->
