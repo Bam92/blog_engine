@@ -17,16 +17,16 @@
 
   </head>
   <body>
+    <header>
 
-    <main class="container" role="main">
-      <div class="container">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Billet simple pour l'Alaska</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+       <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" role="navigation">
+           
+          <div class="container">
+            <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
 
-          <!--div class="collapse navbar-collapse" id="navbarSupportedContent"-->
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#">A propos</a>
@@ -38,50 +38,54 @@
                 <a class="nav-link" href="#">Connexion</a>
               </li>
             </ul>
+              
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
             </form>
-          <!--/div-->
-        </nav>
-        <!--nav class="navbar-expand-xl" role="navigation" id="sidebar">
-
-          <div class="sidebar-header" role="banner">
-            <h3 class="site-title">
-              <a href="index.php" rel="home">Billet simple pour l'Alaska</a>
-            </h3>
-            <p class="site-description">Le nouveau roman de Jean Forteroche</p>
+              
           </div>
+           
+       </nav>
 
-          <div class="sidebar-content">
-            <section class="m-border-b">
-              <a class="nav-link" href="index.php?action=login">Connexion</a>
-            </section>
-            <section class="m-border-b">
-              Episode
+    <!--nav class="navbar-expand-xl" role="navigation" id="sidebar">
 
-              <!--?php
-                while ($row = $posts->fetch())
-                {
-                  echo htmlspecialchars ($row['pst_id']);
-                }
-                ?-->
-            <!--/section>
-            <section class="m-border-b">
-              <a class="nav-link active" href="#">A propos</a>
-              <a class="nav-link" href="#">Contact</a>
-            </section>
-          </div>
-
-        </nav-->
-      </div>
-        
-      <div id="contet" class="containe">
-        <?= $content ?>
+      <div class="sidebar-header" role="banner">
+        <h3 class="site-title">
+          <a href="index.php" rel="home">Billet simple pour l'Alaska</a>
+        </h3>
+        <p class="site-description">Le nouveau roman de Jean Forteroche</p>
       </div>
 
-      <footer> </footer>
+      <div class="sidebar-content">
+        <section class="m-border-b">
+          <a class="nav-link" href="index.php?action=login">Connexion</a>
+        </section>
+        <section class="m-border-b">
+          Episode
+
+          <!--?php
+            while ($row = $posts->fetch())
+            {
+              echo htmlspecialchars ($row['pst_id']);
+            }
+            ?-->
+        <!--/section>
+        <section class="m-border-b">
+          <a class="nav-link active" href="#">A propos</a>
+          <a class="nav-link" href="#">Contact</a>
+        </section>
+      </div>
+
+    </nav-->
+  <!--/div-->
+    </header>
+      
+    <main role="main">        
+        <?= $content ?>      
     </main>
+      
+    <footer> </footer>
 
     <script type="text/javascript" src="vendor/tinymce/tinymce.min.js"> </script>
     <script type="text/javascript">

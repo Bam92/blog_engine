@@ -20,44 +20,40 @@
     <?php } ?>
 </div>
 
-<?php
-  while ($row = $posts->fetch())
-  {
-  ?>
-    <article class="container">
-      <header class="entry-header">
-        <h1>
-          <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>">
-            <?php echo ($row['pst_title']); ?>
-          </a>
-        </h1>
-      </header>
-      <!--,entry-header -->
+<?php while ($row = $posts->fetch()) { ?>
 
-      <div class="entry-content">
-        <?php echo nl2br(substr($row['pst_content'], 0, 300)); ?>...
-      </div>
-      <!--,entry-content -->
+<article class="container">
+  <header class="entry-header">
+    <h1>
+      <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>">
+        <?php echo ($row['pst_title']); ?>
+      </a>
+    </h1>
+  </header>
+  <!--,entry-header -->
 
-      <footer class="entry-footer">
-        <span class="posted-on"><?php echo $row['pst_date_fr']; ?></span>
-        <span class="by">Abel</span>
-        <span class=""> <?php
-          //while ($tag = $tags->fetch()) {
-            print($tags['tag_name']);
-        //  }
-        ?>
-        <?php echo $cmt_number['nb']; ?>
-        </span>
-      </footer>
-      <!--,entry-footer -->
+  <div class="entry-content">
+    <?php echo nl2br(substr($row['pst_content'], 0, 300)); ?>...
+  </div>
+  <!--,entry-content -->
 
-    </article>
+  <footer class="entry-footer">
+    <span class="posted-on"><?php echo $row['pst_date_fr']; ?></span>
+    <span class="by">Abel</span>
+    <span class=""> <?php
+      //while ($tag = $tags->fetch()) {
+        print($tags['tag_name']);
+    //  }
+    ?>
+    <?php echo $cmt_number['nb']; ?>
+    </span>
+  </footer>
+  <!--,entry-footer -->
 
-  <?php
-  }
-//$row->closeCursor();
-  ?>
-  <?php $content= ob_get_clean(); ?>
+</article>
+
+<?php } ?>
+
+<?php $content= ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
