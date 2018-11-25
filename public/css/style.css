@@ -4,7 +4,7 @@
   description: >-
   Blog engine for an author.
   Version: 1.0
-  Author: Abel L Mbula
+  Author: Abel L. Mbula
   Autor URI: http://abelmbula.com
 */
 
@@ -19,7 +19,7 @@
 }
 
 body {
-	background-color: #e9f2f9;
+  background-color: #e9f2f9;
   padding: 50px 0px 0px 0px;
   z-index: 0;
 }
@@ -40,7 +40,7 @@ article {
 }
 
 #sidebar {
-    width: 350px;
+  /*  width: 350px;
     position: fixed;
     top: 0;
     left: 0;
@@ -48,7 +48,7 @@ article {
     z-index: 999;
     background: #7386D5;
     color: #fff;
-    transition: all 0.3s;
+    transition: all 0.3s;*/
 }
 
 .sidebar-header, .sidebar-content {
@@ -64,13 +64,13 @@ article {
 }
 
 #content {
-  width: calc(100% - 400px);
+  /*width: calc(100% - 400px);
   padding: 40px;
   min-height: 100vh;
   transition: all 0.3s;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0;*/
   /*background-color: #ffffff;*/
 }
 
