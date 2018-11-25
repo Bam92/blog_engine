@@ -7,27 +7,30 @@ require_once("model/Manager.php");
  */
 class PostManager extends Manager
 {
-  /* Get all posts from db */
+  /* Get all posts from db except the more recent one (a la une) */
   public function getPosts()
   {
     $db_conct = $this->dbConnect();
 
-    $stmt = $db_conct->query('SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post ORDER BY pst_date DESC LIMIT 0, 5');
+    $stmt = $db_conct->query('SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post ORDER BY pst_date DESC LIMIT 1, 5');
     return $stmt;
 
   }
 
-  // Truncate
-/*  function truncate($text, $chars = 25) {
-    if (strlen($text) <= $chars) {
-        return $text;
-    }
-    $text = $text." ";
-    $text = substr($text,0,$chars);
-    $text = substr($text,0,strrpos($text,' '));
-    $text = $text."[..]";
-    return $text;
-}*/
+/* Get the recent post for our jumbontron  */
+  public function getUnique()
+  {
+    $db_conct = $this->dbConnect();
+
+    // query for one post
+    $stmt = $db_conct->query('SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post ORDER BY pst_date DESC LIMIT 0, 1');
+    // perform query
+    //$stmt->execute(array($postId));
+    //$unique = $stmt->fetchAll();
+
+    return $stmt;
+
+  }
 
   /* Get one post GET  */
   public function getPost($postId)
@@ -45,6 +48,7 @@ class PostManager extends Manager
     return $post;
 
   }
+    
   /* add new post*/
   public function postPost($pstTitle, $pstContent) {
     $db_conct = $this->dbConnect();

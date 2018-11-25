@@ -75,7 +75,8 @@
 
         </nav-->
       </div>
-      <div id="contet" class="container">
+        
+      <div id="contet" class="containe">
         <?= $content ?>
       </div>
 

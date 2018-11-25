@@ -10,7 +10,12 @@ require_once('model/TagManager.php');
 function listPosts() {
 
   $postManager = new PostManager();
+  $commentManager = new CommentManager();
+
   $posts = $postManager->getPosts();
+  $unique = $postManager->getUnique();
+    
+  $cmt_number = $commentManager->countComments($row['pst_id']);
 
   require('view/frontend/listPostsView.php');
 }

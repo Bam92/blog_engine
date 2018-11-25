@@ -2,11 +2,29 @@
 
 <?php ob_start(); ?>
 
+<div class="jumbotron jumbotron-fluid">
+    <?php while ($row = $unique->fetch()) { ?>
+    
+  <div class="container">
+      <header class="entry-header">
+          <h1>
+            <a href="index.php?action=post&amp;id=<?php echo $row ['pst_id']; ?>"><?php echo $row ['pst_title']; ?></a>
+          </h1>
+      </header>
+        <!--,entry-header -->
+
+    <div class="entry-content">
+      <?php echo nl2br(substr($row['pst_content'], 0, 300)); ?>...
+    </div>
+    </div>
+    <?php } ?>
+</div>
+
 <?php
   while ($row = $posts->fetch())
   {
   ?>
-    <article class="">
+    <article class="container">
       <header class="entry-header">
         <h1>
           <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>">
@@ -17,8 +35,7 @@
       <!--,entry-header -->
 
       <div class="entry-content">
-        <?php echo nl2br(substr($row['pst_content'], 0, 300)); ?><br>
-        <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>" class="btn button-primary read-more">Lire la suite</a>
+        <?php echo nl2br(substr($row['pst_content'], 0, 300)); ?>...
       </div>
       <!--,entry-content -->
 
