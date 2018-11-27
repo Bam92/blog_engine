@@ -39,28 +39,8 @@ article {
   width: 100%;
 }
 
-#sidebar {
-  /*  width: 350px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 999;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;*/
-}
-
-.sidebar-header, .sidebar-content {
-  margin: 20% 0;
-  padding: 0 20%;
-}
-
-.site-description {
-  font-weight: 400;
-  line-height: 1.5;
-  margin: 0.5em 0 0;
-  opacity: 0.7;
+#posts {
+   max-width: 900px;
 }
 
 #content {
