@@ -7,9 +7,9 @@
 
    <div class="container">
       <header class="entry-header">
-          <h1>
+          <h2>
             <a href="index.php?action=post&amp;id=<?php echo $row ['pst_id']; ?>"><?php echo $row ['pst_title']; ?></a>
-          </h1>
+          </h2>
       </header>
         <!--,entry-header -->
 
@@ -23,13 +23,13 @@
 <?php while ($row = $posts->fetch()) { ?>
 
 <div class="container">
-   <article id="posts" class="offset-md-1">
+   <article id="posts" class="mx-auto">
      <header class="entry-header">
-       <h1>
+       <h2>
          <a href="index.php?action=post&amp;id=<?php echo $row['pst_id']; ?>">
            <?php echo ($row['pst_title']); ?>
          </a>
-       </h1>
+       </h2>
      </header>
      <!--,entry-header -->
 
