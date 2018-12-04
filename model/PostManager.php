@@ -12,7 +12,11 @@ class PostManager extends Manager
   {
     $db_conct = $this->dbConnect();
 
-    $stmt = $db_conct->query('SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post ORDER BY pst_date DESC LIMIT 1, 5');
+    $stmt = $db_conct->query('SELECT p.pst_id, a.auth_full_name, a.auth_bio, p.pst_title, p.pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr 
+    FROM t_post p 
+    INNER JOIN t_auth a
+    ORDER BY pst_date DESC LIMIT 1, 5');
+     
     return $stmt;
 
   }
@@ -23,7 +27,10 @@ class PostManager extends Manager
     $db_conct = $this->dbConnect();
 
     // query for one post
-    $stmt = $db_conct->query('SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post ORDER BY pst_date DESC LIMIT 0, 1');
+    $stmt = $db_conct->query('SELECT p.pst_id, a.auth_full_name, a.auth_bio, p.pst_title, p.pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr 
+    FROM t_post p 
+    INNER JOIN t_auth a
+    ORDER BY pst_date DESC LIMIT 1');
     // perform query
     //$stmt->execute(array($postId));
     //$unique = $stmt->fetchAll();
@@ -38,7 +45,10 @@ class PostManager extends Manager
     $db_conct = $this->dbConnect();
 
     // query for one post
-    $sql = 'SELECT pst_id, pst_title, pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr FROM t_post WHERE pst_id = ?';
+    $sql = 'SELECT p.pst_id, a.auth_full_name, a.auth_bio, p.pst_title, p.pst_content, DATE_FORMAT(pst_date, \'%d %M %Y\') AS pst_date_fr 
+    FROM t_post p
+    INNER JOIN t_auth a
+    WHERE p.pst_id = ?';
     $stmt = $db_conct->prepare($sql);
 
     // perform query

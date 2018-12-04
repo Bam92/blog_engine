@@ -40,13 +40,8 @@
 
      <footer class="entry-footer">
        <span class="posted-on"><?php echo $row['pst_date_fr']; ?></span>
-       <span class="by">Abel</span>
-       <span class=""> <?php
-         //while ($tag = $tags->fetch()) {
-           print($tags['tag_name']);
-       //  }
-       ?>
-       <?php echo $cmt_number['nb']; ?>
+       <span class="author">par <?php echo $row['auth_full_name'] ?></span><br>
+       <span class=""> <?php echo $cmt_number['nb']; ?>
        </span>
      </footer>
      <!--,entry-footer -->

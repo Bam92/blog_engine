@@ -17,14 +17,12 @@
 
         <footer class="entry-footer">
           <span class="posted-on"><?php echo $post['pst_date_fr']; ?></span>
-          <span class="by">Abel</span>
-          <span class="">
-            <?php
-              while ($tag = $tags->fetch()) {
-                  echo $tag['tag_name']. ', ';
-              }
-            ?>
-          </span>
+          <span class="author"><?php echo $post['auth_full_name']; ?></span>
+          <span class="">   </span>
+           
+           <p>A propos de l'auteur:<br>
+              <?php echo $post['auth_bio']; ?>
+           </p>
         </footer>
         <!--,entry-footer -->
 

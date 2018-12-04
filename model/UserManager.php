@@ -13,7 +13,7 @@ class UserManager extends Manager
     $db_conct = $this->dbConnect();
 
     // query for user
-    $sql = 'SELECT * FROM t_user WHERE usr_name = ?';
+    $sql = 'SELECT * FROM t_auth WHERE auth_name = ?';
 
     $stmt = $db_conct->prepare($sql);
 
@@ -23,15 +23,26 @@ class UserManager extends Manager
 
     //$isValid = password_verify($psswd, $user[0]);
 
-   if ($user['usr_password'] == $psswd) {
+   if ($user['auth_password'] == $psswd) {
 
      $_SESSION['loggedin'] = true;
-     $_SESSION['usrId'] = $user['usr_id'];
-     $_SESSION['username'] = $user['usr_name'];
+     $_SESSION['usrId'] = $user['auth_id'];
+     $_SESSION['username'] = $user['auth_name'];
 
       return true;
+     }
   }
-}
+   
+  public function getUser()
+  {
+     $db_conct = $this->dbConnect();
+
+    // query for user
+    $stmt = $db_conct->query('SELECT * FROM t_auth');
+    $user = $stmt->fetchAll();
+     
+    return $user;
+  }
 
   public function logout() {
     session_destroy();
