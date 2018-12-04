@@ -30,8 +30,19 @@ class UserManager extends Manager
      $_SESSION['username'] = $user['usr_name'];
 
       return true;
+     }
   }
-}
+   
+  public function getUser()
+  {
+     $db_conct = $this->dbConnect();
+
+    // query for user
+    $stmt = $db_conct->query('SELECT * FROM t_user');
+    $user = $stmt->fetchAll();
+     
+    return $user;
+  }
 
   public function logout() {
     session_destroy();
